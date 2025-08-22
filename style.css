@@ -1,18 +1,93 @@
-body {
-  font-family: 'Inter', sans-serif;
-  background: url('https://images.unsplash.com/photo-1616401784841-6a2f1d5795e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
-  background-size: cover;
-  color: var(--fg);
-  line-height: 1.6;
-  position: relative;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root{
+  --bg:#0b0f14;
+  --panel:#0f1621;
+  --line:#1c2633;
+  --fg:#f6f7f9;
+  --muted:#a9b6c7;
+  --accent:#ff7a00;
 }
 
-/* Затемнення поверх фото */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.55);
-  z-index: -1;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height:1.6;
 }
+
+/* Контейнер */
+.container{max-width:1100px;margin:auto;padding:24px}
+
+/* Навігація */
+.nav{
+  position:sticky; top:0; z-index:20;
+  background: rgba(8,12,18,.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{width:34px;height:34px;object-fit:contain;margin-right:8px;vertical-align:middle}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;color:var(--fg);text-decoration:none}
+.nav-links a{color:var(--fg);text-decoration:none;margin-left:16px}
+.nav-links a:hover{color:var(--accent)}
+
+/* Герой */
+.hero{
+  position:relative;
+  min-height:58vh;
+  display:flex;align-items:center;
+  border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.4)),
+    var(--hero) center/cover no-repeat;
+}
+.hero-inner{max-width:820px}
+.hero h1{font-size:clamp(28px,5.5vw,54px);line-height:1.15;margin:0 0 12px}
+.hero p{margin:0 0 14px;color:var(--muted);font-size:clamp(16px,2.5vw,18px)}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 18px}
+.badge{border:1px solid #253244;color:var(--fg);padding:6px 10px;border-radius:999px;font-size:13px}
+
+/* Секції */
+.section{padding:40px 24px;border-bottom:1px solid var(--line)}
+
+/* Картки маршрутів */
+.grid{display:grid;gap:16px}
+@media(min-width:780px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card h3{margin:0 0 8px}
+.price{color:var(--accent);font-weight:800}
+.small{font-size:14px}
+.dim{color:var(--muted)}
+
+/* Кнопки */
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;cursor:pointer;transition:.2s}
+.btn.primary{background:var(--accent);color:#101418}
+.btn.primary:hover{filter:brightness(.95)}
+.btn.ghost{border:1px solid #2b384a;color:var(--fg)}
+.btn.ghost:hover{background:#101a28}
+.link{color:#78baf5;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* Форма */
+.form{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:8px}
+.form-row{display:grid;gap:12px}
+@media(min-width:780px){.form-row{grid-template-columns:1fr 1fr}}
+label{display:block;font-weight:600;margin:8px 0 6px}
+input,select,textarea{
+  width:100%;padding:12px;border-radius:10px;border:1px solid #2b384a;
+  background:#0b1320;color:var(--fg)
+}
+
+/* Галерея */
+.gallery{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:780px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.gallery img{
+  width:100%;height:220px;object-fit:cover;border-radius:12px;border:1px solid var(--line)
+}
+
+/* Футер */
+.footer{padding:26px 24px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}

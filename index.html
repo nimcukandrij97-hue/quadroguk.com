@@ -1,98 +1,83 @@
-/* Шрифт */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КВАДРОГУК — прокат квадроциклів і баггі у Карпатах</title>
+  <meta name="description" content="Драйвові поїздки на квадроциклах і баггі в Карпатах. Легкі, середні та екстрим маршрути. Тел: 098 525 41 41.">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-row">
+      <a class="brand" href="/">КВАДРОГУК</a>
+      <div class="nav-links">
+        <a href="#routes">Маршрути</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#booking">Бронювання</a>
+        <a href="#contacts">Контакти</a>
+      </div>
+    </div>
+  </nav>
 
-:root{
-  --bg:#0b0f14;        /* фон */
-  --panel:#101722;     /* панелі/картки */
-  --line:#1b2430;      /* лінії */
-  --fg:#f6f7f9;        /* текст */
-  --muted:#9fb0c3;     /* другорядний текст */
-  --accent:#30c26b;    /* кнопки */
-}
+  <header class="hero">
+    <div class="container">
+      <h1>Прокат квадроциклів та баггі у Карпатах 🏔️🛞</h1>
+      <p>Маршрути для новачків і екстремалів. Досвідчені інструктори, справна техніка, фото-зупинки у топ-локаціях.</p>
+      <div class="badges">
+        <span class="badge">Буковель / Гуцульщина</span>
+        <span class="badge">Знижки для військових</span>
+        <span class="badge">Пасажир у баггі з інструктором</span>
+      </div>
+      <div class="btns">
+        <a class="btn primary" href="tel:+380985254141">Подзвонити: 098 525 41 41</a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/380985254141">Написати в WhatsApp</a>
+      </div>
+    </div>
+  </header>
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background: var(--bg);
-  color: var(--fg);
-  line-height:1.6;
-}
+  <section id="routes" class="section">
+    <div class="container">
+      <h2>Маршрути і ціни</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Легкий — до водоспаду Гук</h3>
+          <p class="small">1.5–2 год • панорами, полонина, взимку — овеча ферма</p>
+          <p><span class="price">₴3500</span> — квадро 2-місний</p>
+          <p><span class="price">₴4000</span> — баггі 2-місний</p>
+        </div>
+        <div class="card">
+          <h3>Середній — збалансований</h3>
+          <p class="small">2–3 год • потоки, полонини, оглядові точки</p>
+        </div>
+        <div class="card">
+          <h3>Екстрим</h3>
+          <p class="small">3–4 год • складні ділянки, для досвідчених</p>
+        </div>
+      </div>
+      <p class="small">* Для військових — знижки та приємні бонуси.</p>
+    </div>
+  </section>
 
-/* Контейнер */
-.container{max-width:1100px;margin:auto;padding:24px}
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2>Фотогалерея</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1516570161787-2fd917215a3d?q=80&w=800&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=800&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1501706362039-c06b2d715385?q=80&w=800&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=800&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1496483353456-90997957cf99?q=80&w=800&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=800&auto=format&fit=crop" alt="">
+      </div>
+    </div>
+  </section>
 
-/* Навігація */
-.nav{
-  position:sticky; top:0; z-index:10;
-  background:#0b0f14cc; backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--line);
-}
-.nav-row{display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:800;letter-spacing:.5px;text-decoration:none;color:var(--fg)}
-.nav-links a{color:var(--fg);text-decoration:none;margin-left:16px}
-
-/* Головний блок (герой) з фоном */
-.hero{
-  padding:72px 24px;
-  background:
-    radial-gradient(80% 80% at 50% 0%, #1a2533 0%, #0b0f14 60%),
-    url('https://images.unsplash.com/photo-1519680772-8b1b0b84b3a9?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-  border-bottom:1px solid var(--line);
-}
-.hero h1{font-size:34px;margin:0 0 8px}
-.hero p{margin:0;color:var(--muted);max-width:760px}
-
-/* Бейджі */
-.badges{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
-.badge{border:1px solid #223047;color:var(--fg);padding:6px 10px;border-radius:999px;font-size:13px}
-
-/* Секції */
-.section{padding:40px 24px;border-bottom:1px solid var(--line)}
-
-/* Сітка карток маршрутів */
-.grid{display:grid;gap:16px}
-@media(min-width:780px){.grid{grid-template-columns:repeat(3,1fr)}}
-
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:18px;
-}
-.card h3{margin:0 0 8px}
-.price{color:var(--accent);font-weight:800}
-
-/* Кнопки */
-.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-.btn{
-  display:inline-block; padding:12px 18px; border-radius:10px;
-  font-weight:700; text-decoration:none; cursor:pointer;
-}
-.btn.primary{background:var(--accent); color:#0b0f14}
-.btn.ghost{border:1px solid #2b384a; color:var(--fg)}
-.small{color:var(--muted);font-size:14px}
-
-/* Форма */
-.form{
-  background:var(--panel); border:1px solid var(--line);
-  border-radius:16px; padding:18px; margin-top:8px
-}
-.form-row{display:grid;gap:12px}
-@media(min-width:780px){.form-row{grid-template-columns:1fr 1fr}}
-input,select,textarea{
-  width:100%; padding:12px; border-radius:10px;
-  border:1px solid #2b384a; background:#0f1621; color:var(--fg)
-}
-label{display:block;font-weight:600;margin:8px 0 6px}
-
-/* Галерея */
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-@media(min-width:780px){.gallery{grid-template-columns:repeat(3,1fr)}}
-.gallery img{
-  width:100%; height:220px; object-fit:cover;
-  border-radius:12px; border:1px solid var(--line)
-}
-
-/* Футер */
-.footer{padding:26px 24px;color:var(--muted);font-size:14px}
+  <section id="booking" class="section">
+    <div class="container">
+      <h2>Бронювання</h2>
+      <form name="booking" method="POST" data-netlify="true" action="/thanks.html" class="form">
+        <input type="hidden" name="form-name" value="booking">
+        <div class="form-row">
+          <label>Ім’я<input required type="text" name="name" placeholder="Ваше ім’я"></label>
+          <label>Телефон<input required type="tel" name="phone" placeholder="+380 98 525 41

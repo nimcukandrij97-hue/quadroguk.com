@@ -1,42 +1,35 @@
-/* Скидання стилів */
+/* Загальні стилі */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Тіло сайту */
-тіло {
+body {
   font-family: 'Inter', Arial, sans-serif;
   line-height: 1.6;
   color: #fff;
 
-  /* Фон Карпат */
   background: url('karpaty.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
-/* Контейнер */
-.контейнер {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 20px;
-}
-
 /* Навігація */
 .навігація {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  padding: 10px 0;
 }
 
 .рядок-навігації {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
 }
 
 .логотип img {
@@ -55,15 +48,11 @@
   color: #ff7a00;
 }
 
-/* Герой (головний блок з текстом) */
+/* Герой (головний блок) */
 .hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4); /* затемнення, щоб текст було видно */
+  padding: 100px 20px;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .hero h1 {
@@ -73,13 +62,13 @@
 
 .hero p {
   font-size: 1.2rem;
-  max-width: 700px;
+  margin-bottom: 20px;
 }
 
 /* Кнопки */
 .кнопка {
   display: inline-block;
-  margin: 15px 10px;
+  margin: 10px;
   padding: 12px 25px;
   background: #ff7a00;
   color: #fff;
@@ -91,14 +80,4 @@
 
 .кнопка:hover {
   background: #e96b00;
-}
-
-/* Адаптив */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .навігаційні-посилання a {
-    margin: 0 8px;
-  }
 }

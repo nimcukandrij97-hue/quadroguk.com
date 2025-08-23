@@ -22,12 +22,15 @@
     .logo{font-weight:800;color:#00d4ff;font-size:20px}
     .btn{padding:8px 14px;border:1px solid var(--border);border-radius:10px}
     .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#00131a;font-weight:700;border:none}
-    .hero{background:url('img/view1.jpg') center/cover no-repeat;position:relative}
+
+    /* ГЕРОЙ: фон з твого quad1.jpg */
+    .hero{background:url('img/quad1.jpg') center/cover no-repeat;position:relative}
     .hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
     .hero-wrap{position:relative;z-index:1;padding:80px 0;text-align:center}
     .hero h1{font-size:clamp(28px,6vw,52px);margin:0;font-weight:800}
     .hero p{max-width:720px;margin:16px auto;color:var(--muted)}
     .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
     section{padding:60px 0}
     h2{margin:0 0 20px;font-size:clamp(22px,4vw,32px)}
     p.lead{color:var(--muted);margin:0 0 20px}
@@ -112,6 +115,46 @@
   </div>
 </section>
 
+<section id="routes">
+  <div class="container">
+    <h2>Маршрути</h2>
+    <div class="grid">
+      <div class="card"><div class="card-inner">
+        <h3>Легкий • 1.5–2 год</h3>
+        <p class="lead">Водоспад Гук, каньйон Женець, полонина з панорамами.</p>
+        <ul class="list">
+          <li>Індивідуальний темп та зупинки для фото</li>
+          <li>Взимку — заїзд на овечу ферму</li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-inner">
+        <h3>Середній • 2–3 год</h3>
+        <p class="lead">Більше бездоріжжя та підйомів, мальовничі гребені.</p>
+        <ul class="list">
+          <li>Розширені локації та фотостопи</li>
+          <li>Опція «інструктор веде» для пасажирів</li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-inner">
+        <h3>Екстрим • від 3 год</h3>
+        <p class="lead">Складні ділянки, броди, підйоми та спуски — для досвідчених.</p>
+        <ul class="list">
+          <li>Погодні умови враховуються обов'язково</li>
+          <li>Тільки справна та підготована техніка</li>
+        </ul>
+      </div></div>
+      <div class="card"><div class="card-inner">
+        <h3>Навчання та 16+ для підлітків</h3>
+        <p class="lead">Базові навички керування, позиція, гальмування, безпека.</p>
+        <ul class="list">
+          <li>Індивідуальні сесії або для компанії</li>
+          <li>Тривалість від 1 години</li>
+        </ul>
+      </div></div>
+    </div>
+  </div>
+</section>
+
 <section id="gallery">
   <div class="container">
     <h2>Галерея</h2>
@@ -120,7 +163,8 @@
       <img src="img/quad2.jpg" alt="Квадроцикл на маршруті">
       <img src="img/quad3.jpg" alt="Квадроцикл у горах">
       <img src="img/buggy3.jpg" alt="Багі на маршруті">
-      <img src="img/view1.jpg" alt="Карпатські краєвиди">
+      <!-- продублюємо фон, щоб точно було 4 фото -->
+      <img src="img/quad1.jpg" alt="Карпатські краєвиди">
     </div>
   </div>
 </section>

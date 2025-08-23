@@ -1,31 +1,195 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>КвадроГук</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КвадроГук — прокат квадроциклів та баггі у Карпатах</title>
+  <meta name="description" content="КвадроГук — прокат квадроциклів і баггі в Карпатах (Буковель, Гуцульщина). Маршрути для новачків і екстремалів, знижки для військових, фотостопи. Бронюй онлайн або телефоном." />
+  <meta name="theme-color" content="#0b0b0b">
+  <style>
+    :root{
+      --brand: #ff7a00;
+      --brand-2: #ffae00;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,.85);
+      --border: rgba(255,255,255,.12);
+      --max: 1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(0,0,0,.55), transparent 60%),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop") center/cover fixed no-repeat;
+      min-height:100vh;
+      scroll-behavior:smooth;
+    }
+    .overlay{background: rgba(0,0,0,.45); min-height:100vh}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(0,0,0,.55)}
+    .nav-row{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;text-decoration:none;color:var(--text);font-size:20px}
+    .brand img{height:44px}
+    .links{display:flex;gap:18px;flex-wrap:wrap}
+    .links a{color:var(--text);text-decoration:none;font-weight:700;opacity:.9;padding:8px 10px;border-radius:8px}
+    .links a:hover{background:rgba(255,255,255,.15);opacity:1}
+    .menu-btn{display:none;background:transparent;border:1px solid var(--border);color:#fff;padding:10px 12px;border-radius:10px}
+    /* HERO */
+    .hero{max-width:var(--max);margin:0 auto;padding:80px 20px;text-align:center}
+    .title{font-size:clamp(28px,7vw,56px);font-weight:900;margin-bottom:16px;text-shadow:0 6px 24px rgba(0,0,0,.5)}
+    .lead{font-size:clamp(16px,3vw,20px);max-width:720px;margin:0 auto 20px;color:var(--muted)}
+    .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+    .btn{display:inline-block;padding:14px 24px;border-radius:12px;text-decoration:none;color:#fff;font-weight:800;font-size:16px}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .btn.secondary{background:rgba(0,0,0,.35);border:2px solid #fff}
+    /* SECTIONS */
+    section{max-width:var(--max);margin:0 auto;padding:40px 20px}
+    h2{font-size:clamp(24px,5vw,34px);margin-bottom:14px;text-align:center}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:12px;padding:18px}
+    .card h3{margin-bottom:8px}
+    .card p{margin:6px 0;color:var(--muted)}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{background:rgba(0,0,0,.5);padding:16px;border-radius:12px}
+    .review .stars{color:#ffd56a}
+    .form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .form .full{grid-column:1/-1}
+    input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:rgba(0,0,0,.35);color:#fff}
+    textarea{min-height:100px}
+    .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .contact-card{background:rgba(0,0,0,.5);padding:16px;border-radius:12px}
+    footer{max-width:var(--max);margin:30px auto;padding:20px;text-align:center;color:var(--muted)}
+    /* Floating buttons */
+    .whatsapp-btn,.call-btn{
+      position:fixed;right:16px;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:26px;color:#fff;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:9999
+    }
+    .whatsapp-btn{bottom:16px;background:#25D366}
+    .call-btn{bottom:86px;background:var(--brand)}
+    .call-btn:hover,.whatsapp-btn:hover{transform:scale(1.05)}
+    @media(max-width:900px){
+      .links{display:none}.menu-btn{display:inline-block}
+      .grid,.gallery,.reviews,.contact-cards{grid-template-columns:1fr}
+      .call-btn{top:10px;right:10px;bottom:auto;width:50px;height:50px;font-size:22px}
+    }
+  </style>
 </head>
 <body>
-  <header class="навігація">
-    <div class="контейнер рядок-навігації">
-      <div class="логотип">
-        <img src="logo.png" alt="КвадроГук">
+  <div class="overlay">
+    <!-- NAV -->
+    <header class="nav">
+      <div class="nav-row">
+        <a class="brand" href="#"><img src="https://i.ibb.co/fCvRyC7/logo.png" alt="КвадроГук">КвадроГук</a>
+        <nav class="links">
+          <a href="#маршрути">Маршрути</a>
+          <a href="#ціни">Ціни</a>
+          <a href="#галерея">Галерея</a>
+          <a href="#відгуки">Відгуки</a>
+          <a href="#бронювання">Бронювання</a>
+          <a href="#контакти">Контакти</a>
+        </nav>
+        <button class="menu-btn" onclick="toggleMenu()">Меню</button>
       </div>
-      <nav class="навігаційні-посилання">
-        <a href="#">Маршрути</a>
-        <a href="#">Галерея</a>
-        <a href="#">Бронювання</a>
-        <a href="#">Контакти</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <section class="hero">
-    <h1>Прокат квадроциклів та баггі у Карпатах 🏔️</h1>
-    <p>Маршрути для новачків і екстремалів. Досвідчені інструктори, справна техніка, фото-зупинки у топ-локаціях.</p>
-    <a href="tel:0985254141" class="кнопка">Подзвонити: 098 525 41 41</a>
-    <a href="https://wa.me/380985254141" class="кнопка">Написати в WhatsApp</a>
-  </section>
+    <!-- HERO -->
+    <main class="hero">
+      <h1 class="title">Прокат квадроциклів та баггі у Карпатах 🏔️</h1>
+      <p class="lead">Маршрути для новачків і екстремалів. Досвідчені інструктори, справна техніка, фотостопи. <b>Знижки для військових!</b></p>
+      <div class="cta">
+        <a href="tel:0985254141" class="btn primary">📞 Подзвонити</a>
+        <a href="https://wa.me/380985254141" target="_blank" class="btn secondary">💬 WhatsApp</a>
+      </div>
+    </main>
+
+    <!-- ROUTES -->
+    <section id="маршрути">
+      <h2>Маршрути</h2>
+      <div class="grid">
+        <div class="card"><h3>Легкий</h3><p>1.5–2 год • водоспад Гук, полонина</p></div>
+        <div class="card"><h3>Середній</h3><p>2–3 год • екстрим + панорами</p></div>
+        <div class="card"><h3>Екстрим</h3><p>3+ год • складні траси</p></div>
+      </div>
+    </section>
+
+    <!-- PRICES -->
+    <section id="ціни">
+      <h2>Ціни</h2>
+      <div class="grid">
+        <div class="card"><h3>Квадроцикл</h3><p>від 3500 грн / 2 год</p></div>
+        <div class="card"><h3>Баггі 2-місний</h3><p>від 4000 грн / 2 год</p></div>
+        <div class="card"><h3>Баггі 4-місний</h3><p>від 5000 грн / 2 год</p></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="галерея">
+      <h2>Галерея</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="">
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="відгуки">
+      <h2>Відгуки</h2>
+      <div class="reviews">
+        <div class="review"><div class="stars">★★★★★</div><p>Супер маршрут, гарні краєвиди!</p></div>
+        <div class="review"><div class="stars">★★★★★</div><p>Екстрим-тур — море адреналіну!</p></div>
+        <div class="review"><div class="stars">★★★★★</div><p>Дуже уважні інструктори!</p></div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="бронювання">
+      <h2>Бронювання</h2>
+      <form class="form" onsubmit="return book(event)">
+        <div><input id="name" placeholder="Ім’я" required></div>
+        <div><input id="phone" placeholder="Телефон" required></div>
+        <div><input id="date" type="date" required></div>
+        <div><select id="people"><option>1</option><option>2</option><option>3+</option></select></div>
+        <div class="full"><select id="route"><option>Легкий</option><option>Середній</option><option>Екстрим</option></select></div>
+        <div class="full"><textarea id="comment" placeholder="Коментар"></textarea></div>
+        <div class="full"><button class="btn primary" type="submit">🚀 Забронювати у WhatsApp</button></div>
+      </form>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="контакти">
+      <h2>Контакти</h2>
+      <div class="contact-cards">
+        <div class="contact-card"><h3>Телефон</h3><p><a href="tel:0985254141">098 525 41 41</a></p></div>
+        <div class="contact-card"><h3>WhatsApp</h3><p><a href="https://wa.me/380985254141" target="_blank">Написати</a></p></div>
+        <div class="contact-card"><h3>Локація</h3><p>Карпати, Буковель</p></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>© КвадроГук, Карпати • Безпека і драйв</footer>
+  </div>
+
+  <!-- FLOATING BUTTONS -->
+  <a href="tel:0985254141" class="call-btn">📞</a>
+  <a href="https://wa.me/380985254141" target="_blank" class="whatsapp-btn">💬</a>
+
+  <script>
+    function toggleMenu(){document.querySelector('.links').classList.toggle('show')}
+    function book(e){
+      e.preventDefault();
+      const name=document.getElementById('name').value;
+      const phone=document.getElementById('phone').value;
+      const date=document.getElementById('date').value;
+      const people=document.getElementById('people').value;
+      const route=document.getElementById('route').value;
+      const comment=document.getElementById('comment').value;
+      const msg=`Бронювання:%0AІмʼя: ${name}%0AТел: ${phone}%0AДата: ${date}%0AОсіб: ${people}%0AМаршрут: ${route}%0AКоментар: ${comment}`;
+      window.open(`https://wa.me/380985254141?text=${msg}`,'_blank');
+    }
+  </script>
 </body>
 </html>

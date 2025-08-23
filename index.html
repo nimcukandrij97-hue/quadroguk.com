@@ -1,124 +1,31 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>КВАДРОГУК — прокат квадроциклів та баггі у Карпатах</title>
-  <meta name="description" content="Драйвові поїздки на квадроциклах і баггі в Карпатах. Легкі, середні та екстрим маршрути. Знижки для військових. Тел: 098 525 41 41.">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КвадроГук</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ШАПКА -->
-  <nav class="nav">
-    <div class="container nav-row">
-      <a class="brand" href="/">
-        <img class="logo" src="images/logo.png" alt="КВАДРОГУК" />
-        КВАДРОГУК
-      </a>
-      <div class="nav-links">
-        <a href="#routes">Маршрути</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#booking">Бронювання</a>
-        <a href="#contacts">Контакти</a>
+  <header class="навігація">
+    <div class="контейнер рядок-навігації">
+      <div class="логотип">
+        <img src="logo.png" alt="КвадроГук">
       </div>
-    </div>
-  </nav>
-
-  <!-- ГЕРО-БЛОК -->
-  <header class="hero" style="--hero:url('images/hero.jpg');">
-    <div class="container hero-inner">
-      <h1>Прокат квадроциклів та баггі у Карпатах 🏔️</h1>
-      <p>Маршрути для новачків і екстремалів. Досвідчені інструктори, справна техніка, фото-зупинки у топ-локаціях.</p>
-      <div class="badges">
-        <span class="badge">Буковель / Гуцульщина</span>
-        <span class="badge">Знижки для військових</span>
-        <span class="badge">Пасажир у баггі з інструктором</span>
-      </div>
-      <div class="btns">
-        <a class="btn primary" href="tel:+380985254141">Подзвонити: 098 525 41 41</a>
-        <a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/380985254141">Написати в WhatsApp</a>
-      </div>
+      <nav class="навігаційні-посилання">
+        <a href="#">Маршрути</a>
+        <a href="#">Галерея</a>
+        <a href="#">Бронювання</a>
+        <a href="#">Контакти</a>
+      </nav>
     </div>
   </header>
 
-  <!-- МАРШРУТИ -->
-  <section id="routes" class="section">
-    <div class="container">
-      <h2>Маршрути і ціни</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Легкий — до водоспаду Гук</h3>
-          <p class="small">1.5–2 год • панорами, полонина, взимку — овеча ферма</p>
-          <p><span class="price">₴3500</span> — квадро 2-місний</p>
-          <p><span class="price">₴4000</span> — баггі 2-місний</p>
-        </article>
-        <article class="card">
-          <h3>Середній — збалансований</h3>
-          <p class="small">2–3 год • потоки, полонини, оглядові точки</p>
-        </article>
-        <article class="card">
-          <h3>Екстрим</h3>
-          <p class="small">3–4 год • складні ділянки, для досвідчених</p>
-        </article>
-      </div>
-      <p class="small dim">* Для військових — знижки та приємні бонуси.</p>
-    </div>
+  <section class="hero">
+    <h1>Прокат квадроциклів та баггі у Карпатах 🏔️</h1>
+    <p>Маршрути для новачків і екстремалів. Досвідчені інструктори, справна техніка, фото-зупинки у топ-локаціях.</p>
+    <a href="tel:0985254141" class="кнопка">Подзвонити: 098 525 41 41</a>
+    <a href="https://wa.me/380985254141" class="кнопка">Написати в WhatsApp</a>
   </section>
-
-  <!-- ГАЛЕРЕЯ -->
-  <section id="gallery" class="section">
-    <div class="container">
-      <h2>Фотогалерея</h2>
-      <div class="gallery">
-        <img src="images/quad1.jpg" alt="Квадроцикл у Карпатах">
-        <img src="images/quad2.jpg" alt="Дорога в горах">
-        <img src="images/quad3.jpg" alt="Полонина та краєвиди">
-        <img src="images/quad4.jpg" alt="Баггі на маршруті">
-      </div>
-    </div>
-  </section>
-
-  <!-- ФОРМА БРОНЮВАННЯ -->
-  <section id="booking" class="section">
-    <div class="container">
-      <h2>Бронювання</h2>
-      <form name="booking" method="POST" data-netlify="true" action="/thanks.html" class="form">
-        <input type="hidden" name="form-name" value="booking">
-        <div class="form-row">
-          <label>Ім’я<input required type="text" name="name" placeholder="Ваше ім’я"></label>
-          <label>Телефон<input required type="tel" name="phone" placeholder="+380 98 525 41 41"></label>
-        </div>
-        <div class="form-row">
-          <label>Маршрут
-            <select name="route">
-              <option>Легкий — до водоспаду Гук</option>
-              <option>Середній — збалансований</option>
-              <option>Екстрим</option>
-            </select>
-          </label>
-          <label>Дата<input type="date" name="date"></label>
-        </div>
-        <label>Коментар<textarea name="comment" rows="4" placeholder="Кількість людей, побажання…"></textarea></label>
-        <div class="btns">
-          <button class="btn primary" type="submit">Надіслати заявку</button>
-          <a class="btn ghost" href="tel:+380985254141">Подзвонити зараз</a>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- КОНТАКТИ -->
-  <section id="contacts" class="section">
-    <div class="container">
-      <h2>Контакти</h2>
-      <p>Телефон: <a class="link" href="tel:+380985254141">098 525 41 41</a></p>
-      <p>Instagram: <a class="link" href="https://instagram.com/qadro_guk" target="_blank" rel="noopener">@qadro_guk</a></p>
-      <p>Google-відгуки: <a class="link" href="https://g.page/r/Cb-VgewkUjs9EBE/review" target="_blank" rel="noopener">переглянути</a></p>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">© 2025 КВАДРОГУК • Прокат квадроциклів та баггі</div>
-  </footer>
 </body>
 </html>

@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>КвадроГук — прокат квадроциклів та баггі у Карпатах</title>
   <meta name="description" content="Маршрути для новачків і екстремалів. Досвідчені інструктори, техніка в ідеальному стані. Знижки для військових!" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -17,191 +15,124 @@
       --accent:#22e6c8;
       --accent-2:#27e4a6;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
     body{
-      margin:0;
-      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.55;
+      margin:0; font-family:Inter, sans-serif; color:var(--text); background:var(--bg);
     }
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1100px,92%);margin-inline:auto}
+    .container{width:min(1100px,92%);margin:auto}
 
     /* NAV */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(160%) blur(8px);
-      background:linear-gradient(180deg, rgba(5,8,15,.75), rgba(5,8,15,.35));
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav{
-      display:flex; align-items:center; gap:18px; padding:14px 0;
-    }
-    .brand{
-      font-weight:800; font-size:22px; color: var(--accent);
-      letter-spacing:.2px;
-    }
-    .navlinks{margin-left:auto; display:flex; gap:10px; flex-wrap:wrap}
-    .chip{
-      border:1px solid rgba(255,255,255,.09);
-      padding:8px 12px; border-radius:12px; color:#cfe6ff;
-      background:rgba(255,255,255,.03);
-    }
-    .cta{
-      margin-left:8px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#012016; font-weight:700; padding:10px 16px; border-radius:14px;
-      box-shadow:0 8px 24px rgba(34,230,200,.25);
-    }
+    header{position:sticky;top:0;z-index:50;background:#0d1424cc;backdrop-filter:blur(8px)}
+    .nav{display:flex;align-items:center;gap:16px;padding:12px 0}
+    .brand{font-weight:800;font-size:22px;color:var(--accent)}
+    .navlinks{margin-left:auto;display:flex;gap:10px}
+    .chip{padding:8px 12px;border-radius:10px;background:#ffffff0a;color:#cfe6ff}
+    .cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:10px 16px;border-radius:12px;color:#012016;font-weight:700}
 
     /* HERO */
     .hero{
-      min-height:82vh; display:grid; place-items:center;
-      text-align:center; position:relative; overflow:hidden;
+      min-height:82vh;display:grid;place-items:center;text-align:center;
       background:
-        linear-gradient(180deg, rgba(5,10,20,.85) 0%, rgba(5,10,20,.72) 40%, rgba(5,10,20,.88) 100%),
-        url('https://images.unsplash.com/photo-1562158070-1c1bf06a1b5b?auto=format&fit=crop&w=1600&q=80');
-      background-size:cover; background-position:center;
+        linear-gradient(180deg,rgba(5,10,20,.85),rgba(5,10,20,.7)),
+        url('https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;background-position:center;
     }
-    .hero h1{
-      font-size:clamp(28px,6vw,50px);
-      margin:0 0 10px; letter-spacing:.3px;
-    }
-    .hero p{
-      color:var(--muted); font-size:clamp(16px,2.9vw,20px);
-      max-width:780px; margin:0 auto 24px;
-    }
-    .btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:14px 18px; border-radius:14px; font-weight:700;
-      border:1px solid rgba(255,255,255,.08);
-      background:var(--card);
-    }
-    .btn--call{background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#032a23}
-    .btn svg{width:20px;height:20px}
+    .hero h1{font-size:clamp(28px,6vw,50px);margin:0 0 10px}
+    .hero p{color:var(--muted);font-size:18px;max-width:780px;margin:0 auto 24px}
+    .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn{padding:14px 18px;border-radius:14px;font-weight:700;text-decoration:none}
+    .btn--call{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#032a23}
+    .btn--wa{background:#0f1729;color:#fff;border:1px solid #333}
 
     /* SECTIONS */
     section{padding:56px 0}
     h2{font-size:28px;margin:0 0 18px}
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:18px;
-    }
+    .card{background:#ffffff05;border:1px solid #ffffff1a;border-radius:16px;padding:18px}
 
     /* GALLERY */
-    .gallery{
-      display:grid; gap:12px;
-      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    }
-    .gallery img{
-      width:100%; height:190px; object-fit:cover; border-radius:14px;
-      border:1px solid rgba(255,255,255,.06);
-      background:#0d1424;
-    }
-
-    /* FOOTER */
-    footer{padding:36px 0 56px; color:#98a2b3; text-align:center}
+    .gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+    .gallery img{width:100%;height:190px;object-fit:cover;border-radius:14px;border:1px solid #ffffff1a}
+    footer{padding:36px 0;text-align:center;color:#98a2b3}
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <header>
-    <div class="container nav">
-      <div class="brand">КвадроГук</div>
-      <nav class="navlinks">
-        <a class="chip" href="#prices">Ціни</a>
-        <a class="chip" href="#routes">Маршрути</a>
-        <a class="chip" href="#gallery">Галерея</a>
-        <a class="cta" href="#contact">Зв’язок</a>
-      </nav>
+<header>
+  <div class="container nav">
+    <div class="brand">КвадроГук</div>
+    <nav class="navlinks">
+      <a class="chip" href="#prices">Ціни</a>
+      <a class="chip" href="#routes">Маршрути</a>
+      <a class="chip" href="#gallery">Галерея</a>
+      <a class="cta" href="#contact">Зв’язок</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Прокат квадроциклів та баггі у Карпатах 🏔️</h1>
+    <p>Маршрути для новачків і екстремалів. Досвідчені інструктори, техніка в ідеальному стані. <strong>Знижки для військових!</strong></p>
+    <div class="btns">
+      <a class="btn btn--call" href="tel:+380985254141">Подзвонити</a>
+      <a class="btn btn--wa" href="https://wa.me/380985254141?text=Вітаю!%20Хочу%20забронювати%20поїздку%20КвадроГук">WhatsApp</a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Прокат квадроциклів та баггі у Карпатах 🏔️</h1>
-      <p>Маршрути для новачків і екстремалів. Досвідчені інструктори, техніка в ідеальному стані. <strong>Знижки для військових!</strong></p>
-      <div class="btns">
-        <a class="btn btn--call" href="tel:+380985254141">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.72 15.72 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C10.3 22 2 13.7 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.27.2 2.47.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
-          Подзвонити
-        </a>
-        <a class="btn" href="https://wa.me/380985254141?text=Вітаю!%20Хочу%20забронювати%20поїздку%20КвадроГук">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
-          WhatsApp
-        </a>
-      </div>
+<section id="prices">
+  <div class="container">
+    <h2>Оновлені ціни</h2>
+    <div class="card">
+      <ul>
+        <li>Квадроцикл (2-місний) — 3500 грн / 1.5–2 год</li>
+        <li>Баггі (2-місний) — 4000 грн / 1.5–2 год</li>
+        <li>Баггі (4-місний) — 5000 грн / 1.5–2 год</li>
+        <li>Снігохід (2-місний) — 7000 грн / 1.5–2 год</li>
+      </ul>
+      <p style="color:var(--muted)">*Пальне та інструктаж включені. Знижки для військових.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRICES -->
-  <section id="prices">
-    <div class="container">
-      <h2>Оновлені ціни</h2>
-      <div class="card">
-        <ul>
-          <li>Квадроцикл (2-місний) — 3500 грн / 1.5–2 год</li>
-          <li>Баггі (2-місний) — 4000 грн / 1.5–2 год</li>
-          <li>Баггі (4-місний) — 5000 грн / 1.5–2 год</li>
-          <li>Снігохід (2-місний) — 7000 грн / 1.5–2 год</li>
-        </ul>
-        <p style="color:var(--muted);margin:8px 0 0">*Пальне та інструктаж включені. Знижки для військових.</p>
-      </div>
+<section id="routes">
+  <div class="container">
+    <h2>Маршрути</h2>
+    <div class="card">
+      <p><strong>Легкий:</strong> до водоспаду Гук + полонина, оглядові майданчики.</p>
+      <p><strong>Середній:</strong> каньйон річки, підйом на полонину, панорами Карпат.</p>
+      <p><strong>Екстрим:</strong> технічні підйоми й спуски, більше бездоріжжя.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ROUTES -->
-  <section id="routes">
-    <div class="container">
-      <h2>Маршрути</h2>
-      <div class="card">
-        <p><strong>Легкий:</strong> до водоспаду Гук + полонина, оглядові майданчики.</p>
-        <p><strong>Середній:</strong> каньйон річки, підйом на полонину, панорами Карпат.</p>
-        <p><strong>Екстрим:</strong> технічні підйоми й спуски, більше бездоріжжя.</p>
-      </div>
+<section id="gallery">
+  <div class="container">
+    <h2>Галерея</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1606666114951-efc1f1d1e1c4?auto=format&fit=crop&w=900&q=80" alt="Квадроцикл у горах">
+      <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80" alt="Баггі Карпати">
+      <img src="https://images.unsplash.com/photo-1543352634-8732c77b3b87?auto=format&fit=crop&w=900&q=80" alt="Карпатські краєвиди">
+      <img src="https://images.unsplash.com/photo-1629203854745-1a33c9ee7c5a?auto=format&fit=crop&w=900&q=80" alt="ATV по лісу">
+      <img src="https://images.unsplash.com/photo-1605705971707-a1a6cc4f5b0e?auto=format&fit=crop&w=900&q=80" alt="Снігохід Карпати">
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="container">
-      <h2>Галерея</h2>
-      <div class="gallery">
-        <img loading="lazy" alt="Квадроцикл в горах" src="https://images.unsplash.com/photo-1606666114951-efc1f1d1e1c4?auto=format&fit=crop&w=900&q=80">
-        <img loading="lazy" alt="Баггі на бездоріжжі" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80">
-        <img loading="lazy" alt="Карпатські краєвиди" src="https://images.unsplash.com/photo-1543352634-8732c77b3b87?auto=format&fit=crop&w=900&q=80">
-        <img loading="lazy" alt="ATV по лісу" src="https://images.unsplash.com/photo-1629203854745-1a33c9ee7c5a?auto=format&fit=crop&w=900&q=80">
-        <img loading="lazy" alt="Offroad action" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80">
-        <img loading="lazy" alt="Гірська дорога" src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80">
-        <img loading="lazy" alt="Снігохід" src="https://images.unsplash.com/photo-1605705971707-a1a6cc4f5b0e?auto=format&fit=crop&w=900&q=80">
-        <img loading="lazy" alt="Баггі у горах" src="https://images.unsplash.com/photo-1600762936318-9cfa9f48eb2b?auto=format&fit=crop&w=900&q=80">
-      </div>
+<section id="contact">
+  <div class="container">
+    <h2>Зв’язок</h2>
+    <div class="card">
+      <p><strong>Телефон:</strong> <a href="tel:+380985254141">+38 (098) 525-41-41</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/380985254141">написати в WhatsApp</a></p>
+      <p><strong>Локація:</strong> Карпати, район Буковелю • Водоспад Гук та інші маршрути</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2>Зв’язок</h2>
-      <div class="card">
-        <p><strong>Телефон:</strong> <a href="tel:+380985254141">+38 (098) 525-41-41</a></p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/380985254141">написати в WhatsApp</a></p>
-        <p><strong>Локація:</strong> Карпати, район Буковелю • Водоспад Гук та інші маршрути</p>
-      </div>
-    </div>
-  </section>
+<footer>
+  <div class="container">© <span id="y"></span> КвадроГук — #1 у Карпатах</div>
+</footer>
 
-  <footer>
-    <div class="container">© <span id="y"></span> КвадроГук — #1 у Карпатах</div>
-  </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
